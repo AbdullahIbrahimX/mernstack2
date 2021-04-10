@@ -4,6 +4,7 @@ module.exports = (io)=>{
 
         socket.on("messageSent", socket =>{
            console.log(socket)
+            io.emit('newMessage')
         });
 
     });
