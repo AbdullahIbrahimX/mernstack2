@@ -20,22 +20,9 @@ cardController.create = async (req,res,next) =>{
     }
 }
 /**
- * @returns { success:true +- extra} when promise is fulfilled
+ * @returns " { success:true +- extra}" when promise is fulfilled
  */
-cardController.read = async (req,res,next) =>{ //GET"/api/v1/card/:path = ["WorkExperiance,ProfissionalExperiance,Education]"
-    // const { user } = req
-    // const query = {
-    //     owner: user._id
-    // }
-    // try {
-    //     const cards =await Card.find(query);
-    //     return res.send({
-    //         cards
-    //     });
-    // }catch (e) {
-    //     next(e);
-    // }
-
+cardController.read = async (req,res,next) =>{ //GET"/api/v1/card/:path = ["WorkExperience,ProfessionalExperience,Education]"
     const path = req.params.path;
     const lang = req.params.lang;
     const query = { path,lang }
@@ -51,7 +38,7 @@ cardController.read = async (req,res,next) =>{ //GET"/api/v1/card/:path = ["Work
         next(e);
     }
 }
-cardController.readAll = (req,res,next) =>{}
+// cardController.readAll = (req,res,next) =>{}
 cardController.update = async (req,res,next) =>{//PUT"/api/v1/card/:id"
     const _id = req.params.id;
     const update = req.body;

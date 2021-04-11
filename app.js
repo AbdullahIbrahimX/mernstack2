@@ -1,15 +1,15 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var path = require('path');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors');
+const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
 
-var  v1 = require('./routes/v1');
+const  v1 = require('./routes/v1');
 
-var app = express();
+const app = express();
 
 
 //----- DB Config -----//
@@ -35,9 +35,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(passport.initialize());
-app.use(passport.session());
-require('./config/passport');
+app.use(passport.initialize);
+app.use(passport.session);
+require('./config/passport')(passport);
 
 
 //----- Routes Config -----//
