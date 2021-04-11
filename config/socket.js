@@ -11,7 +11,8 @@ module.exports = (io)=>{
         socket.on('test',()=>{
             console.log('test Googd');
             io.emit('test1');
-        })
+        });
+
         socket.on('disconnect', socket=>{
             console.log(socket.id + "  Disconnected");
         });
