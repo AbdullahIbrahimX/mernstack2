@@ -16,12 +16,12 @@ module.exports = (io)=>{
     socket.on("messageSent", socket =>{
        console.log('Socket log')
        console.log( socket );
-        io.emit('newMessage');
+       io.emit('newMessage',socket.data);
     });
     ///////////////////////////
     //TODO for testing only >>> to be deleted
         socket.on('test',()=>{
-            console.log('test Googd');
+            console.log('test Good');
             io.emit('test1');
         });
 
