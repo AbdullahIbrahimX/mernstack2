@@ -5,7 +5,7 @@ const wrap = middleware => (socket, next) => middleware(socket.request, {}, next
 
 module.exports = (io)=>{
     //----middleware----//
-    io.use(wrap(logger('dev')));
+    // io.use(wrap(logger('dev')));
     io.use(wrap(passport.initialize()));
     io.use(wrap(passport.session()));
     require('../config/passport')(passport);
@@ -15,9 +15,10 @@ module.exports = (io)=>{
 
 
     io.of('/').use((socket,next)=>{
-        console.log(socket.id);
+        console.log(socket.nsp.name.toString() + '   User connected : ' + socket.id)
+0
         socket.on('disconnect',()=>{
-           console.log('User Disconnected');
+           console.log(socket.nsp.name.toString() + '   User Disconnected');
            next();
         });
         next();

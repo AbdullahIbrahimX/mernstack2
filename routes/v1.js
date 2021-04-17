@@ -14,7 +14,7 @@ router.post('/usr/register',userController.register);
 router.post('/usr/login',userController.login)
 
 //--------------------CRUD for experience cards--------------------//
-router.get('/cards/:path/:lang', cardController.read);
+
 
 //--------------------Messages Controls--------------------//
 router.post('/send',messageController.create);
@@ -37,6 +37,8 @@ router.all('*',(req,res,next)=>{
 });
 
 
+
+router.get('/cards/:path/:lang', cardController.read);
 //--------------------CRUD for experience cards--------------------//
 router.post('/cards', cardController.create);
 router.put('/cards/:id', cardController.update);
