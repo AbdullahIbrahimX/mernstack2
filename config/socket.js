@@ -16,7 +16,7 @@ module.exports = (io)=>{
 
     io.of('/').use((socket,next)=>{
         console.log(socket.nsp.name.toString() + '   User connected : ' + socket.id)
-0
+
         socket.on('disconnect',()=>{
            console.log(socket.nsp.name.toString() + '   User Disconnected');
            next();
